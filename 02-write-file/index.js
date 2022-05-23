@@ -8,11 +8,6 @@ const ws = fs.createWriteStream(path.join(__dirname, 'text.txt'), {
   flags: 'a'
 });
 
-// const onError = (err) => {
-//   console.log(`Sorry, ${err?.message}`);
-//   rl.close();
-// };
-
 rl.write('Hello. What do you want to save in text file?\n');
 
 rl.on('line', (text) => {
@@ -23,7 +18,6 @@ rl.on('line', (text) => {
   }
 });
 
-// ws.on('error', onError);
 rl.on('close', () => {
   console.log('Thank you. Bye');
   ws.end();
